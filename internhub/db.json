@@ -1,0 +1,440 @@
+{
+  "users": [
+    {
+      "id": "web_s1",
+      "name": "Web Student 1",
+      "email": "web_s1@example.com",
+      "username": "web_student1",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "student",
+      "domain": "Web Dev",
+      "score": 270,
+      "tasks_completed": 3,
+      "isVerified": true
+    },
+    {
+      "id": "web_s2",
+      "name": "Web Student 2",
+      "email": "web_s2@example.com",
+      "username": "web_student2",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "student",
+      "domain": "Web Dev",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "web_s3",
+      "name": "Web Student 3",
+      "email": "web_s3@example.com",
+      "username": "web_student3",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "student",
+      "domain": "Web Dev",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "web_s4",
+      "name": "Web Student 4",
+      "email": "web_s4@example.com",
+      "username": "web_student4",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "student",
+      "domain": "Web Dev",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "web_s5",
+      "name": "Web Student 5",
+      "email": "web_s5@example.com",
+      "username": "web_student5",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "student",
+      "domain": "Web Dev",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "web_m1",
+      "name": "Web Mentor 1",
+      "email": "web_m1@example.com",
+      "username": "web_mentor1",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "mentor",
+      "domain": "Web Dev",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "web_m2",
+      "name": "Web Mentor 2",
+      "email": "web_m2@example.com",
+      "username": "web_mentor2",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "mentor",
+      "domain": "Web Dev",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "web_m3",
+      "name": "Web Mentor 3",
+      "email": "web_m3@example.com",
+      "username": "web_mentor3",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "mentor",
+      "domain": "Web Dev",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "cyber_s1",
+      "name": "Cyber Student 1",
+      "email": "cyber_s1@example.com",
+      "username": "cyber_student1",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "student",
+      "domain": "Cybersecurity",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "cyber_s2",
+      "name": "Cyber Student 2",
+      "email": "cyber_s2@example.com",
+      "username": "cyber_student2",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "student",
+      "domain": "Cybersecurity",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "cyber_s3",
+      "name": "Cyber Student 3",
+      "email": "cyber_s3@example.com",
+      "username": "cyber_student3",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "student",
+      "domain": "Cybersecurity",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "cyber_s4",
+      "name": "Cyber Student 4",
+      "email": "cyber_s4@example.com",
+      "username": "cyber_student4",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "student",
+      "domain": "Cybersecurity",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "cyber_s5",
+      "name": "Cyber Student 5",
+      "email": "cyber_s5@example.com",
+      "username": "cyber_student5",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "student",
+      "domain": "Cybersecurity",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "cyber_m1",
+      "name": "Cyber Mentor 1",
+      "email": "cyber_m1@example.com",
+      "username": "cyber_mentor1",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "mentor",
+      "domain": "Cybersecurity",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "cyber_m2",
+      "name": "Cyber Mentor 2",
+      "email": "cyber_m2@example.com",
+      "username": "cyber_mentor2",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "mentor",
+      "domain": "Cybersecurity",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "cyber_m3",
+      "name": "Cyber Mentor 3",
+      "email": "cyber_m3@example.com",
+      "username": "cyber_mentor3",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "mentor",
+      "domain": "Cybersecurity",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "cloud_s1",
+      "name": "Cloud Student 1",
+      "email": "cloud_s1@example.com",
+      "username": "cloud_student1",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "student",
+      "domain": "Cloud Computing",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "cloud_s2",
+      "name": "Cloud Student 2",
+      "email": "cloud_s2@example.com",
+      "username": "cloud_student2",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "student",
+      "domain": "Cloud Computing",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "cloud_s3",
+      "name": "Cloud Student 3",
+      "email": "cloud_s3@example.com",
+      "username": "cloud_student3",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "student",
+      "domain": "Cloud Computing",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "cloud_s4",
+      "name": "Cloud Student 4",
+      "email": "cloud_s4@example.com",
+      "username": "cloud_student4",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "student",
+      "domain": "Cloud Computing",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "cloud_s5",
+      "name": "Cloud Student 5",
+      "email": "cloud_s5@example.com",
+      "username": "cloud_student5",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "student",
+      "domain": "Cloud Computing",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "cloud_m1",
+      "name": "Cloud Mentor 1",
+      "email": "cloud_m1@example.com",
+      "username": "cloud_mentor1",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "mentor",
+      "domain": "Cloud Computing",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "cloud_m2",
+      "name": "Cloud Mentor 2",
+      "email": "cloud_m2@example.com",
+      "username": "cloud_mentor2",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "mentor",
+      "domain": "Cloud Computing",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    },
+    {
+      "id": "cloud_m3",
+      "name": "Cloud Mentor 3",
+      "email": "cloud_m3@example.com",
+      "username": "cloud_mentor3",
+      "password": "$2a$10$l.aq0WVVymfil1wL33Cwn.Us8IyJxwjq75LkxPTXtaDf5b0xjv1d.",
+      "role": "mentor",
+      "domain": "Cloud Computing",
+      "score": 0,
+      "tasks_completed": 0,
+      "isVerified": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task_1",
+      "title": "Student Registration Page",
+      "description": "Create a responsive student registration form with validation.",
+      "deadline": "2026-04-10",
+      "domain": "Web Dev",
+      "mentor": "web_mentor1"
+    },
+    {
+      "id": "task_2",
+      "title": "Portfolio Website",
+      "description": "Build a personal portfolio website using React and Tailwind.",
+      "deadline": "2026-04-15",
+      "domain": "Web Dev",
+      "mentor": "web_mentor1"
+    },
+    {
+      "id": "task_3",
+      "title": "JWT Authentication",
+      "description": "Implement secure JWT authentication in a Node.js backend.",
+      "deadline": "2026-04-20",
+      "domain": "Web Dev",
+      "mentor": "web_mentor2"
+    },
+    {
+      "id": "task_4",
+      "title": "Vulnerability Scan",
+      "description": "Perform a network vulnerability assessment using Nmap and Nessus.",
+      "deadline": "2026-04-25",
+      "domain": "Cybersecurity",
+      "mentor": "cyber_mentor1"
+    },
+    {
+      "id": "task_5",
+      "title": "AWS VPC Setup",
+      "description": "Configure a secure VPC with public and private subnets on AWS.",
+      "deadline": "2026-04-30",
+      "domain": "Cloud Computing",
+      "mentor": "cloud_mentor1"
+    },
+    {
+      "id": "task_6",
+      "title": "CI/CD Pipeline",
+      "description": "Set up a GitHub Actions pipeline for automated testing and deployment.",
+      "deadline": "2026-05-05",
+      "domain": "Cloud Computing",
+      "mentor": "cloud_mentor2"
+    }
+  ],
+  "submissions": [
+    {
+      "id": "sub_1",
+      "studentId": "web_s1",
+      "taskId": "task_1",
+      "taskTitle": "Student Registration Page",
+      "fileUrl": "https://github.com/web_s1/registration",
+      "notes": "Completed the registration form with full validation.",
+      "status": "reviewed",
+      "score": 90,
+      "domain": "Web Dev"
+    },
+    {
+      "id": "sub_2",
+      "studentId": "web_s1",
+      "taskId": "task_2",
+      "taskTitle": "Portfolio Website",
+      "fileUrl": "https://web_s1.github.io/portfolio",
+      "notes": "Portfolio is live and responsive.",
+      "status": "reviewed",
+      "score": 85,
+      "domain": "Web Dev"
+    },
+    {
+      "id": "sub_3",
+      "studentId": "web_s1",
+      "taskId": "task_3",
+      "taskTitle": "JWT Authentication",
+      "fileUrl": "https://github.com/web_s1/jwt-auth",
+      "notes": "Implemented secure login and token verification.",
+      "status": "reviewed",
+      "score": 95,
+      "domain": "Web Dev"
+    },
+    {
+      "id": "sub_4",
+      "studentId": "web_s1",
+      "taskId": "task_4",
+      "taskTitle": "Vulnerability Scan",
+      "fileUrl": "https://github.com/web_s1/vuln-scan",
+      "notes": "Initial scan results attached.",
+      "status": "submitted",
+      "score": null,
+      "domain": "Cybersecurity"
+    },
+    {
+      "id": "sub_5",
+      "studentId": "web_s1",
+      "taskId": "task_5",
+      "taskTitle": "AWS VPC Setup",
+      "fileUrl": "https://github.com/web_s1/aws-vpc",
+      "notes": "VPC configured with subnets.",
+      "status": "submitted",
+      "score": null,
+      "domain": "Cloud Computing"
+    },
+    {
+      "id": "sub_6",
+      "studentId": "web_s1",
+      "taskId": "task_6",
+      "taskTitle": "CI/CD Pipeline",
+      "fileUrl": "https://github.com/web_s1/cicd",
+      "notes": "GitHub Actions workflow defined.",
+      "status": "submitted",
+      "score": null,
+      "domain": "Cloud Computing"
+    },
+    {
+      "id": "g41ijcu1h",
+      "studentId": "web_s1",
+      "taskId": "task_1",
+      "taskTitle": "Student Registration Page",
+      "fileUrl": "https://share.google/Al0ftjnihubD0Ol2O",
+      "notes": "",
+      "status": "submitted",
+      "score": null,
+      "domain": "Web Dev"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev_1",
+      "submissionId": "sub_4",
+      "taskTitle": "Vulnerability Scan",
+      "assignedTo": "cyber_s2",
+      "date": "2026-04-06",
+      "status": "pending"
+    },
+    {
+      "id": "rev_2",
+      "submissionId": "sub_5",
+      "taskTitle": "AWS VPC Setup",
+      "assignedTo": "cloud_s2",
+      "date": "2026-04-06",
+      "status": "pending"
+    }
+  ],
+  "messages": []
+}
