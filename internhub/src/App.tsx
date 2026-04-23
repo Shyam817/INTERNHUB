@@ -401,74 +401,97 @@ function AuthScreen({ onLogin }: { onLogin: (user: User) => void }) {
   const [showPass, setShowPass] = useState(false);
 
   const handleSignup = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
+  e.preventDefault();
+  setError('');
 
-    if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match.');
-      return;
+  if (!formData.name || !formData.email || !formData.username || !formData.password) {
+    setError("All fields are required");
+    return;
+  }
+
+  if (formData.password !== formData.confirmPassword) {
+    setError('Passwords do not match.');
+    return;
+  }
+
+  if (formData.role === 'mentor' && formData.mentorCode !== '123') {
+    setError('Invalid mentor access code.');
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    const payload: any = {
+      name: formData.name,
+      email: formData.email,
+      username: formData.username,
+      password: formData.password,
+      role: formData.role,
+      domain: formData.domain
+    };
+
+    if (formData.role === "mentor") {
+      payload.mentorCode = formData.mentorCode;
     }
 
-    if (formData.role === 'mentor' && formData.mentorCode !== '123') {
-      setError('Invalid mentor access code.');
-      return;
+    const res = await fetch('/api/auth/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      onLogin(data.user);
+    } else {
+      setError(data.message);
     }
 
-    setLoading(true);
-    try {
-      const res = await fetch('/api/auth/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-      const data = await res.json();
-      if (data.success) {
-        // Sync local storage with server DB
-        const dbRes = await fetch('/api/db');
-        if (dbRes.ok) {
-          const dbData = await dbRes.json();
-          saveDB(dbData);
-        }
-        onLogin(data.user);
-      } else {
-        setError(data.message);
-      }
-    } catch (err) {
-      setError('Signup failed.');
-    } finally {
-      setLoading(false);
-    }
-  };
+  } catch {
+    setError('Signup failed.');
+  } finally {
+    setLoading(false);
+  }
+};
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
-    setLoading(true);
 
-    try {
-      const res = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: formData.username, password: formData.password })
-      });
-      const data = await res.json();
-      if (data.success) {
-        // Fetch the full database from the server to sync local storage
-        const dbRes = await fetch('/api/db');
-        if (dbRes.ok) {
-          const dbData = await dbRes.json();
-          saveDB(dbData);
-        }
-        onLogin(data.user);
-      } else {
-        setError(data.message);
-      }
-    } catch (err) {
-      setError('Login failed.');
-    } finally {
-      setLoading(false);
+const handleLogin = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setError('');
+
+  if (!formData.username || !formData.password) {
+    setError("Username and password required");
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    const res = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: formData.username,
+        password: formData.password
+      })
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      onLogin(data.user);
+    } else {
+      setError(data.message);
     }
-  };
+
+  } catch {
+    setError('Login failed.');
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#050505] p-6 relative overflow-hidden">

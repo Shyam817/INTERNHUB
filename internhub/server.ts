@@ -8,20 +8,28 @@ import fs from 'fs';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import nodemailer from 'nodemailer';
-import { GoogleGenAI } from "@google/genai"; // ✅ ADDED
+import { GoogleGenAI } from "@google/genai";
 
 dotenv.config(); 
 
-const PORT = process.env.PORT || 3000; // ✅ FIXED
-const DB_FILE = path.join(process.cwd(), 'db.json');
-const JWT_SECRET = process.env.JWT_SECRET || 'internhub-secret-key';
+// ✅ FIXED PORT (RENDER SAFE)
+const PORT = process.env.PORT || 5000;
 
-// 🔥 GEMINI INIT
+// ✅ SAFE PATH
+const DB_FILE = path.join(process.cwd(), 'db.json');
+
+// ❗ IMPORTANT: NEVER leave fallback in production
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) {
+  throw new Error("JWT_SECRET is missing in environment variables");
+}
+
+// 🔥 GEMINI INIT (SAFE)
 const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY
 });
 
-// --- Database Mock ---
+// --- Database ---
 const getDB = () => {
   if (!fs.existsSync(DB_FILE)) {
     const initialDB = { 
@@ -41,13 +49,13 @@ const saveDB = (db: any) => {
   fs.writeFileSync(DB_FILE, JSON.stringify(db, null, 2));
 };
 
-// --- Email Service ---
+// --- Email ---
 const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || 'smtp.ethereal.email',
+  host: process.env.SMTP_HOST,
   port: Number(process.env.SMTP_PORT) || 587,
   auth: {
-    user: process.env.SMTP_USER || 'ethereal-user',
-    pass: process.env.SMTP_PASS || 'ethereal-pass',
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
   },
 });
 
@@ -61,115 +69,77 @@ async function startServer() {
   app.use(express.json());
 
   /* =========================
-     🔥 GEMINI ROUTES
+     GEMINI ROUTES
   ========================= */
 
-  // SEARCH
   app.post('/api/gemini/search', async (req, res) => {
     try {
       const { query, domain } = req.body;
 
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
-        contents: `Find 10 internship opportunities for ${domain} based on "${query}".
-
-Return JSON array:
-- title
-- company
-- location
-- link
-- deadline
-- description`,
+        contents: `Find 10 internship opportunities for ${domain} based on "${query}". Return JSON.`,
       });
 
       res.json(JSON.parse(response.text || "[]"));
     } catch (err) {
-      console.error("Search error:", err);
+      console.error(err);
       res.status(500).json({ error: "Search failed" });
     }
   });
 
-  // ANALYZE
   app.post('/api/gemini/analyze', async (req, res) => {
     try {
       const { text, domain } = req.body;
 
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
-        contents: `Analyze this resume for ${domain}:
-
-${text}
-
-Return JSON:
-- resumeScore
-- matchPct
-- advantages
-- disadvantages
-- found
-- missing
-- suggestions
-- roadmap`,
+        contents: `Analyze resume for ${domain}: ${text}. Return JSON.`,
       });
 
       res.json(JSON.parse(response.text || "{}"));
     } catch (err) {
-      console.error("Analyze error:", err);
+      console.error(err);
       res.status(500).json({ error: "Analyze failed" });
     }
   });
 
-  // MATCH (with domain restored)
   app.post('/api/gemini/match', async (req, res) => {
     try {
       const { jd, resumeText, domain } = req.body;
 
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
-        contents: `You are a recruiter for ${domain} roles.
-
-Compare this job description and resume.
-
-Job Description:
-${jd}
-
-Resume:
-${resumeText}
-
-Return JSON:
-- pct
-- matched
-- missing
-- suggestions`,
+        contents: `Compare JD and resume for ${domain}. Return JSON.`,
       });
 
       res.json(JSON.parse(response.text || "{}"));
     } catch (err) {
-      console.error("Match error:", err);
+      console.error(err);
       res.status(500).json({ error: "Match failed" });
     }
   });
 
   /* =========================
-     YOUR ORIGINAL ROUTES
+     AUTH
   ========================= */
 
-  // --- Auth Routes ---
   app.post('/api/auth/signup', async (req, res) => {
     const { name, email, username, password, role, domain, mentorCode } = req.body;
     const db = getDB();
 
     if (db.users.find((u: any) => u.email === email || u.username === username)) {
-      return res.status(400).json({ success: false, message: 'User or email already exists' });
+      return res.status(400).json({ success: false, message: 'User exists' });
     }
 
     if (role === 'mentor' && mentorCode !== '123') {
-      return res.status(400).json({ success: false, message: 'Invalid mentor access code' });
+      return res.status(400).json({ success: false, message: 'Invalid code' });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = {
-      id: Math.random().toString(36).substr(2, 9),
+      id: Date.now().toString(),
       name,
       email,
       username,
@@ -203,7 +173,7 @@ Return JSON:
   });
 
   /* =========================
-     SOCKET + VITE
+     SOCKET
   ========================= */
 
   io.on('connection', (socket) => {
@@ -222,6 +192,10 @@ Return JSON:
     });
   });
 
+  /* =========================
+     VITE
+  ========================= */
+
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
       server: { middlewareMode: true },
@@ -236,8 +210,9 @@ Return JSON:
     });
   }
 
+  // ✅ FINAL START
   httpServer.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
   });
 }
 
